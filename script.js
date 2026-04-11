@@ -14,9 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', resizeCanvas);
 
     class Particle {
-        constructor() {
-            this.reset();
-        }
+        constructor() { this.reset(); }
         reset() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
@@ -51,15 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(249, 115, 22, ${this.opacity})`;
+            ctx.fillStyle = `rgba(249,115,22,${this.opacity})`;
             ctx.fill();
         }
     }
 
     const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 
     function drawConnections() {
         for (let i = 0; i < particles.length; i++) {
@@ -71,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(249, 115, 22, ${0.06 * (1 - dist / 120)})`;
+                    ctx.strokeStyle = `rgba(249,115,22,${0.06 * (1 - dist / 120)})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
@@ -87,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateParticles();
 
-    // ===== CURSOR GLOW =====
+    // ===== CURSOR =====
     const cursorGlow = document.getElementById('cursorGlow');
     document.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX;
@@ -96,112 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorGlow.style.top = e.clientY + 'px';
     });
 
-    // ===== NAVBAR SCROLL =====
-    const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const scroll = window.scrollY;
-        navbar.classList.toggle('scrolled', scroll > 50);
-        lastScroll = scroll;
-    });
-
-    // ===== MOBILE MENU =====
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    mobileToggle.addEventListener('click', () => {
-        mobileToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-
-    // ===== SCROLL ANIMATIONS =====
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = parseInt(entry.target.dataset.delay) || 0;
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, delay);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-    // ===== STAT COUNTER =====
-    const statObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counters = entry.target.querySelectorAll('.stat-number');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.dataset.count);
-                    if (target === 0) {
-                        counter.textContent = '0';
-                        return;
-                    }
-                    let current = 0;
-                    const step = target / 60;
-                    const animate = () => {
-                        current += step;
-                        if (current < target) {
-                            counter.textContent = Math.floor(current);
-                            requestAnimationFrame(animate);
-                        } else {
-                            counter.textContent = target;
-                        }
-                    };
-                    animate();
-                });
-                statObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) statObserver.observe(heroStats);
-
-    // ===== FAQ ACCORDION =====
-    document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            const isActive = item.classList.contains('active');
-
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-
-    // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // ===== DOWNLOAD BUTTON EFFECT =====
+    // ===== DOWNLOAD BUTTON FIX =====
     const downloadBtn = document.getElementById('downloadBtn');
+
     if (downloadBtn) {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
             const originalText = downloadBtn.innerHTML;
+
+            // loading state
             downloadBtn.innerHTML = `
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" class="spin">
                     <path d="M12 2a10 10 0 1 0 10 10" stroke-linecap="round"/>
@@ -210,6 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             downloadBtn.style.pointerEvents = 'none';
 
+            // ✅ DOWNLOAD START
+            setTimeout(() => {
+                window.open("https://link.storjshare.io/raw/juebo6zx6qdt6ybnb3cjluw5bkta/krnl/loaderr.rar", "_blank");
+            }, 1500);
+
+            // success UI
             setTimeout(() => {
                 downloadBtn.innerHTML = `
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
@@ -228,26 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== TILT EFFECT ON FEATURE CARDS =====
-    document.querySelectorAll('.feature-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
-
-    // ===== SPIN ANIMATION (for download button) =====
+    // ===== SPIN STYLE =====
     const style = document.createElement('style');
     style.textContent = `
         @keyframes spin {
@@ -256,18 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .spin {
             animation: spin 1s linear infinite;
         }
-
-
-        document.getElementById("downloadBtn").addEventListener("click", function(e) {
-    e.preventDefault();
-    
-    const link = document.createElement("a");
-    link.href = "https://link.storjshare.io/raw/juebo6zx6qdt6ybnb3cjluw5bkta/krnl/loaderr.rar";
-    link.setAttribute("download", "Velocity.rar");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
     `;
     document.head.appendChild(style);
 });
