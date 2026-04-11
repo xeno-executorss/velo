@@ -195,47 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== DOWNLOAD BUTTON EFFECT =====
-    const downloadBtn = document.getElementById('downloadBtn');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const url = downloadBtn.getAttribute('href');
-            if (url) {
-                const opened = window.open(url, '_blank', 'noopener,noreferrer');
-                if (opened == null) {
-                    window.location.assign(url);
-                }
-            }
-
-            const originalText = downloadBtn.innerHTML;
-            downloadBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" class="spin">
-                    <path d="M12 2a10 10 0 1 0 10 10" stroke-linecap="round"/>
-                </svg>
-                Preparing Download...
-            `;
-            downloadBtn.style.pointerEvents = 'none';
-
-            setTimeout(() => {
-                downloadBtn.innerHTML = `
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                        <path d="M20 6L9 17l-5-5"/>
-                    </svg>
-                    Download Started!
-                `;
-                downloadBtn.style.background = '#16a34a';
-
-                setTimeout(() => {
-                    downloadBtn.innerHTML = originalText;
-                    downloadBtn.style.background = '';
-                    downloadBtn.style.pointerEvents = '';
-                }, 2500);
-            }, 1500);
-        });
-    }
-
     // ===== TILT EFFECT ON FEATURE CARDS =====
     document.querySelectorAll('.feature-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -254,16 +213,4 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = '';
         });
     });
-
-    // ===== SPIN ANIMATION (for download button) =====
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .spin {
-            animation: spin 1s linear infinite;
-        }
-    `;
-    document.head.appendChild(style);
 });
