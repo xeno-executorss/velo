@@ -201,6 +201,17 @@ document.addEventListener('DOMContentLoaded', () => {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
+            const url = downloadBtn.getAttribute('href');
+            if (url) {
+                const trigger = document.createElement('a');
+                trigger.href = url;
+                trigger.target = '_blank';
+                trigger.rel = 'noopener noreferrer';
+                document.body.appendChild(trigger);
+                trigger.click();
+                trigger.remove();
+            }
+
             const originalText = downloadBtn.innerHTML;
             downloadBtn.innerHTML = `
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" class="spin">
