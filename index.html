@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Executor — #1 Free Roblox Executor</title>
+    <meta name="description" content="Velocity is one of the best free Roblox executors for Windows PC. 99% sUNC success rate, fast execution, completely free and keyless.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Open Graph (Discord, WhatsApp, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Velocity Executor — #1 Free Roblox Executor">
+    <meta property="og:description" content="The most powerful free Roblox executor. 99% sUNC success rate, fast execution, completely free and keyless. Trusted by 100K+ users.">
+    <meta property="og:image" content="icon.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:site_name" content="Velocity Executor">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Velocity Executor — #1 Free Roblox Executor">
+    <meta name="twitter:description" content="The most powerful free Roblox executor. 99% sUNC success rate, fast execution, completely free and keyless.">
+    <meta name="twitter:image" content="icon.png">
+
+    <!-- Theme Color (Discord embed sidebar color) -->
+    <meta name="theme-color" content="#f97316">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="icon.png" alt="Velocity" class="logo-icon">
+                <span>Velocity</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#download">Download</a>
+                <a href="#requirements">Requirements</a>
+                <a href="#faq">FAQ</a>
+                <a href="#download" class="btn btn-nav">Get Velocity</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-effects">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge animate-on-scroll">
+                <span class="badge-dot"></span>
+                <span>v4.2 — Updated for Latest Roblox</span>
+            </div>
+            <h1 class="hero-title animate-on-scroll">
+                <span class="title-line">The Most Powerful</span>
+                <span class="title-line title-gradient">Roblox Executor</span>
+            </h1>
+            <p class="hero-desc animate-on-scroll">
+                Execute any Lua script with a 99% sUNC success rate. Completely free, keyless, and trusted by thousands of players worldwide.
+            </p>
+            <div class="hero-actions animate-on-scroll">
+                <a href="#download" class="btn btn-primary btn-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    Download Now
+                </a>
+                <a href="#features" class="btn btn-ghost btn-lg">
+                    Learn More
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-stats animate-on-scroll">
+                <div class="stat">
+                    <div class="stat-top">
+                        <span class="stat-number" data-count="99">0</span><span class="stat-suffix">%</span>
+                    </div>
+                    <span class="stat-label">sUNC Rate</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-top">
+                        <span class="stat-number" data-count="100">0</span><span class="stat-suffix">K+</span>
+                    </div>
+                    <span class="stat-label">Discord Members</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-top">
+                        <span class="stat-number" data-count="0">0</span>
+                    </div>
+                    <span class="stat-label">Keys Required</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Why Choose <span class="text-gradient">Velocity</span>?</h2>
+                <p class="section-desc">Packed with powerful features that set it apart from every other executor on the market.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll" data-delay="0">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>Thoroughly tested for the best performance and compatibility. Your security is our top priority.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="100">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>99% sUNC Rate</h3>
+                    <p>Industry-leading compatibility score. Works smoothly with nearly all scripts and games without issues.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="200">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                            <path d="M7 8l3 3-3 3M12 14h5"/>
+                        </svg>
+                    </div>
+                    <h3>User Friendly</h3>
+                    <p>Clean, intuitive interface designed for everyone. Start running scripts within minutes of installation.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="300">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Fast Execution</h3>
+                    <p>Lightning-fast script injection and execution. No lag, no delays — just instant results.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="400">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Discord Support</h3>
+                    <p>Join 100K+ members in our Discord. Friendly support staff ready to help whenever you need it.</p>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="500">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Keyless Access</h3>
+                    <p>No annoying key systems or linkvertise. Download, install, and start scripting immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="section download" id="download">
+        <div class="download-bg-effects">
+            <div class="download-orb download-orb-1"></div>
+            <div class="download-orb download-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Download</span>
+                <h2 class="section-title">Get <span class="text-gradient">Velocity</span> Now</h2>
+                <p class="section-desc">Follow these simple steps to start running scripts in Roblox.</p>
+            </div>
+            <div class="download-card animate-on-scroll">
+                <div class="download-card-glow"></div>
+                <div class="download-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4>Download & Extract</h4>
+                            <p>Download the Velocity.7z file from our official website, then extract it to install on your Windows PC.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4>Launch & Attach</h4>
+                            <p>Open the Roblox app, then launch Velocity Executor. Attach the executor to the Roblox client.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4>Paste Script</h4>
+                            <p>Paste the Lua script code you want to run into the Velocity Executor script editor.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h4>Execute</h4>
+                            <p>Click the Inject button. The script will load and run in the game instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-action">
+                    <a href="#" class="btn btn-primary btn-xl" id="downloadBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        Download Velocity v4.2
+                    </a>
+                    <p class="download-meta">Windows 10/11 • 120 MB • Free & Keyless</p>
+                </div>
+            </div>
+            <div class="notice animate-on-scroll">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                <p>Some antivirus programs may flag this file as a false positive. This is common with Roblox executors as they modify game memory. Our files are thoroughly scanned and tested to be completely safe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="section requirements" id="requirements">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">System Requirements</span>
+                <h2 class="section-title">Ready to <span class="text-gradient">Run?</span></h2>
+                <p class="section-desc">Make sure your system meets these minimum requirements for smooth performance.</p>
+            </div>
+            <div class="requirements-grid">
+                <div class="req-card animate-on-scroll" data-delay="0">
+                    <div class="req-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                        </svg>
+                    </div>
+                    <span class="req-label">Operating System</span>
+                    <span class="req-value">Windows 10 / 11</span>
+                </div>
+                <div class="req-card animate-on-scroll" data-delay="100">
+                    <div class="req-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <path d="M9 9h6v6H9z"/>
+                            <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+                        </svg>
+                    </div>
+                    <span class="req-label">Processor</span>
+                    <span class="req-value">1.5 GHz or Higher</span>
+                </div>
+                <div class="req-card animate-on-scroll" data-delay="200">
+                    <div class="req-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="5" width="18" height="14" rx="1"/>
+                            <path d="M7 9h2v6H7zM11 11h2v4h-2zM15 7h2v8h-2z"/>
+                        </svg>
+                    </div>
+                    <span class="req-label">RAM</span>
+                    <span class="req-value">2 GB Minimum</span>
+                </div>
+                <div class="req-card animate-on-scroll" data-delay="300">
+                    <div class="req-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v4M12 18v4"/>
+                        </svg>
+                    </div>
+                    <span class="req-label">Storage</span>
+                    <span class="req-value">120 MB Free</span>
+                </div>
+                <div class="req-card animate-on-scroll" data-delay="400">
+                    <div class="req-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <span class="req-label">Graphics</span>
+                    <span class="req-value">DirectX 9 GPU</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-desc">Got questions? We've got answers.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item animate-on-scroll" data-delay="0">
+                    <button class="faq-question">
+                        <span>Is Velocity Executor safe to use?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, Velocity Executor is safe and secure as long as you download it from its official website. We thoroughly test all files to ensure they're free from malware or viruses. However, we recommend downloading only from official sources.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll" data-delay="100">
+                    <button class="faq-question">
+                        <span>Does Velocity require a key system?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No! Velocity is completely keyless. There are no annoying key systems, linkvertise, or ad walls. Just download, install, and start scripting right away.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll" data-delay="200">
+                    <button class="faq-question">
+                        <span>What is the sUNC success rate?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Velocity has achieved a 99% sUNC success rate, meaning it can execute almost any Lua script without issues. This makes it one of the most compatible executors available.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll" data-delay="300">
+                    <button class="faq-question">
+                        <span>Why does my antivirus flag Velocity?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>This is a common false positive with Roblox executors. Since they modify game memory to inject scripts, antivirus software may flag them. Rest assured, our files are thoroughly scanned and completely safe.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll" data-delay="400">
+                    <button class="faq-question">
+                        <span>Which operating systems are supported?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Velocity currently supports Windows 10 and Windows 11. Make sure your system meets the minimum requirements listed in the System Requirements section for the best performance.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll" data-delay="500">
+                    <button class="faq-question">
+                        <span>How do I get support?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Join our official Discord server with over 100K members! Our friendly support staff is always ready to help with any issues or questions you may have.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="icon.png" alt="Velocity" class="logo-icon">
+                        <span>Velocity</span>
+                    </a>
+                    <p>The most powerful free Roblox executor. Trusted by thousands of players worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#download">Download</a>
+                        <a href="#requirements">Requirements</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Community</h4>
+                        <a href="#">Discord</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Velocity Executor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
