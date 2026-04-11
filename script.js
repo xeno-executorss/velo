@@ -203,13 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const url = downloadBtn.getAttribute('href');
             if (url) {
-                const trigger = document.createElement('a');
-                trigger.href = url;
-                trigger.target = '_blank';
-                trigger.rel = 'noopener noreferrer';
-                document.body.appendChild(trigger);
-                trigger.click();
-                trigger.remove();
+                const opened = window.open(url, '_blank', 'noopener,noreferrer');
+                if (opened == null) {
+                    window.location.assign(url);
+                }
             }
 
             const originalText = downloadBtn.innerHTML;
